@@ -36,11 +36,15 @@ def funct_x_squared(value):
 def funct_sqrt(value):
     return nup.sqrt(value)
 
+def funct_ctg(value):
+    return 1 / nup.tan(value)
+
 if __name__ == '__main__':
     functions = {
         'sin': nup.sin,
         'cos': nup.cos,
         'tan': nup.tan,
+        'ctg': funct_ctg,
         'exp': nup.exp,
         'log': nup.log,
         'x': funct_x,
@@ -48,7 +52,7 @@ if __name__ == '__main__':
         'sqrt(x)': funct_sqrt
     }
 
-    choice = input("Выберете функцию из списка 'sin', 'cos', 'tan', 'exp', 'log', 'x', 'x^2', 'sqrt(x)': ")
+    choice = input("Выберете функцию из списка 'sin', 'cos', 'tan', 'ctg', 'exp', 'log', 'x', 'x^2', 'sqrt(x)': ")
     funct = functions.get(choice)
     if funct is None:
         print("Неверный выбор")
