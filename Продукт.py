@@ -35,9 +35,11 @@ def funct_x_squared(value):
 
 def funct_sqrt(value):
     return nup.sqrt(value)
-
 def funct_ctg(value):
     return 1 / nup.tan(value)
+
+#def funct_one_of_x(value):
+#    return 1 / value
 
 if __name__ == '__main__':
     functions = {
