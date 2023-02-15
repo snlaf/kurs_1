@@ -1,6 +1,6 @@
 import tkinter as tk
-import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.pyplot as pl
+import numpy as nup
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -67,12 +67,12 @@ class Application(tk.Frame):
     def get_function(self):
         choice = self.func_var.get()
         functions = {
-            'sin': np.sin,
-            'cos': np.cos,
-            'tan': np.tan,
+            'sin': nup.sin,
+            'cos': nup.cos,
+            'tan': nup.tan,
             'ctg': self.funct_ctg,
-            'exp': np.exp,
-            'log': np.log,
+            'exp': nup.exp,
+            'log': nup.log,
             'x': self.funct_x,
             'x^2': self.funct_x_squared,
             'sqrt(x)': self.funct_sqrt
@@ -89,36 +89,36 @@ class Application(tk.Frame):
         return self.dim_var.get()
 
     def plot_function_2d(self, func, value):
-        fig, ax = plt.subplots()
-        X = np.linspace(-np.pi, np.pi, 256)
+        fig, ax = pl.subplots()
+        X = nup.linspace(-nup.pi, nup.pi, 256)
         Y = func(value * X)
         ax.plot(X, Y)
 
         ax.set_title("Функция")
         ax.set_xlabel("X координата")
         ax.set_ylabel("Y координата")
-        plt.show()
+        pl.show()
 
     def plot_function_3d(self, func, value):
-        fig = plt.figure()
+        fig = pl.figure()
         ax = fig.add_subplot(111, projection='3d')
-        X = np.linspace(-np.pi, np.pi, 256)
-        Y = np.linspace(-np.pi, np.pi, 256)
-        X, Y = np.meshgrid(X, Y)
-        Z = func(value * np.sqrt(X ** 2 + Y ** 2))
+        X = nup.linspace(-nup.pi, nup.pi, 256)
+        Y = nup.linspace(-nup.pi, nup.pi, 256)
+        X, Y = nup.meshgrid(X, Y)
+        Z = func(value * nup.sqrt(X ** 2 + Y ** 2))
         ax.plot_surface(X, Y, Z, cmap='plasma')
 
         ax.set_title("Функция")
         ax.set_xlabel("X координата")
         ax.set_ylabel("Y координата")
         ax.set_zlabel("Z координата")
-        plt.show()
+        pl.show()
 
     def show_error(self, message):
         tk.messagebox.showerror("Ошибка", message)
 
     def funct_ctg(self, X):
-        return 1.0 / np.tan(X)
+        return 1.0 / nup.tan(X)
 
     def funct_x(self, X):
         return X
@@ -127,9 +127,9 @@ class Application(tk.Frame):
         return X ** 2
 
     def funct_sqrt(self, X):
-        return np.sqrt(X)
+        return nup.sqrt(X)
 
-root = tk.Tk()
+root = tk.tk()
 root.title("Функция")
 app = Application(master=root)
 app.mainloop()
