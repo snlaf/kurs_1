@@ -129,7 +129,7 @@ class Application(tk.Frame):
     def funct_sqrt(self, X):
         return nup.sqrt(X)
 
-root = tk.tk()
+root = tk.Tk()
 root.title("Функция")
 app = Application(master=root)
 app.mainloop()
